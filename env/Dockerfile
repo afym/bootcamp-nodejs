@@ -18,15 +18,13 @@ RUN npm install -g \
     dotenv \
     cors \
     axios \
-    jsonwebtoken \
-    bcryptjs \
-    uuid \
     fs-extra
 
 ENV NODE_PATH=/usr/lib/node_modules
 
-RUN chown -R ${NB_UID}:${NB_GID} /home/jovyan/work
+RUN chown -R ${NB_UID}:${NB_GID} /home/jovyan
 
 USER ${NB_UID}
+
 
 CMD ["start-notebook.sh", "--NotebookApp.token=''", "--NotebookApp.password=''", "--allow-root"]
